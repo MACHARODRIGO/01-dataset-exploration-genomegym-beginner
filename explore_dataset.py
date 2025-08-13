@@ -1,10 +1,21 @@
 import pandas as pd
 
-df = pd.read_csv('data/dna_sequences.csv')
-print(df)
+# Cargar el dataset
+df = pd.read_csv("dna_sequences.csv")
 
-print("\nDataFrame Info:")
-print(df.info())
+# Mostrar cantidad de secuencias y primeras filas
+print(f" Total de secuencias: {len(df)}\n")
+print(" Primeras secuencias:")
+print(df.head())
 
-print("\nSummary Statistics:")
-print(df.describe())
+# Agregar columna con longitud
+df["length"] = df["sequence"].apply(len)
+
+# Calcular estadísticas de longitud
+print("\n Estadísticas de longitud:")
+print(df["length"].describe())
+
+# Mostrar secuencias más largas que el promedio
+mean_len = df["length"].mean()
+print("\n Secuencias más largas que el promedio:")
+print(df[df["length"] > mean_len])
