@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Cargar el dataset
-df = pd.read_csv("dna_sequences.csv")
+df = pd.read_csv("data/dna_sequences.csv")
 
 # Mostrar cantidad de secuencias y primeras filas
 print(f" Total de secuencias: {len(df)}\n")
